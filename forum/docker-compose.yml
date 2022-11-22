@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres
+    container_name: forum
+    environment:
+      POSTGRES_USER: gabrielcunha
+      POSTGRES_PASSWORD: brasil
+      PGDATA: /data/postgres
+    volumes:
+      - /home/951549924@adm.unifor.br/Documentos/APIRest_Spring_treinamento/forum/volume-docker:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+networks:
+  postgres:
+    driver: bridge
